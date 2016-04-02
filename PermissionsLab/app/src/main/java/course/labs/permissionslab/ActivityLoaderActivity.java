@@ -10,29 +10,32 @@ import android.widget.Button;
 
 public class ActivityLoaderActivity extends Activity {
 
-	private static final String TAG = "Lab-Permissions";
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_loader_activity);
+    private static final String TAG = "Lab-Permissions";
 
-		Button startBookmarksButton = (Button) findViewById(R.id.start_bookmarks_button);
-		startBookmarksButton.setOnClickListener(new OnClickListener() {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_loader_activity);
 
-			@Override
-			public void onClick(View v) {
+        Button startBookmarksButton = (Button) findViewById(R.id.start_bookmarks_button);
+        startBookmarksButton.setOnClickListener(new OnClickListener() {
 
-				startBookMarksActivity();
-			
-			}
-		});
-	}
+            @Override
+            public void onClick(View v) {
 
-	private void startBookMarksActivity() {
-		
-		Log.i(TAG, "Entered startBookMarksActivity()");
-	
-		// TODO - Start the BookmarksActivity
+                startBookMarksActivity();
 
-	}
+            }
+        });
+    }
+
+    private void startBookMarksActivity() {
+
+        Log.i(TAG, "Entered startBookMarksActivity()");
+
+        // Start the BookmarksActivity
+        Intent bIntent = new Intent(ActivityLoaderActivity.this, BookmarksActivity.class);
+        startActivity(bIntent);
+
+    }
 }
